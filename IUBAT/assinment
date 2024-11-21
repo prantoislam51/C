@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_MOVIES 10
+
+struct Movie
+{
+    char title[50];
+    char genre[20];
+    int year;
+    char director[50];
+};
+
+struct Movie library[MAX_MOVIES];
+int movieCount = 0;
+
+void addMovie()
+{
+    if (movieCount == MAX_MOVIES)
+    {
+        printf("Library is full. Cannot add more movies.\n");
+        return;
+    }
+
+    struct Movie newMovie;
+    printf("Enter the movie title: ");
+    scanf("%s", newMovie.title);
+    // Check for duplicate titles
+    for (int i = 0; i < movieCount; i++)
+    {
+        if (strcmp(library[i].title, newMovie.title) == 0)
+        {
+            printf("This movie already exists in the library.\n");
+            return;
+        }
+    }
+    printf("Enter the genre: ");
+    scanf("%s", newMovie.genre);
+    printf("Enter the year: ");
+    scanf("%d", &newMovie.year);
+    printf("Enter the director's name: ");
+    scanf("%s", newMovie.director);
+
+    library[movieCount] = newMovie;
+    movieCount++;
+    printf("Movie added successfully!\n");
+}
+
+void listMovies()
+{
+    printf("List of all movies:\n");
+    for (int i = 0; i < movieCount; i++)
+    {
+        printf("%d: %s\n", i + 1, library[i].title);
+    }
+}
+
+void searchMovie()
+{
+    char searchTitle[50];
+    printf("Enter the title of the movie to search for: ");
+    scanf("%s", searchTitle);
+    for (int i = 0; i < movieCount; i++)
+    {
+        if (strcmp(library[i].title, searchTitle) == 0)
+        {
+            printf("Movie found:\n");
+            printf("Title: %s\n", library[i].title);
+            printf("Genre: %s\n", library[i].genre);
+            printf("Year: %d\n", library[i].year);
+            printf("Director: %s\n", library[i].director);
+            return;
+        }
+    }
+    printf("Movie not found.\n");
+}
+
+int main()
+{
+    int option;
+    do
+    {
+        printf("\nMovie Library Management System\n");
+        printf("1. Add a new movie\n");
+        printf("2. Display all movies\n");
+        printf("3. Search for a movie\n");
+        printf("4. Exit\n");
+        printf("Choose an option: ");
+        scanf("%d", &option);
+
+        switch (option)
+        {
+        case 1:
+            addMovie();
+            break;
+        case 2:
+            listMovies();
+            break;
+        case 3:
+            searchMovie();
+            break;
+        case 4:
+            printf("Exiting the program.\n");
+            break;
+        default:
+            printf("Invalid. Please try again.\n");
+        }
+    }
+    while (option != 4);
+
+    return 0;
+}

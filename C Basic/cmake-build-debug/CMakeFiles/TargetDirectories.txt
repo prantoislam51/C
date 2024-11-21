@@ -1,0 +1,3 @@
+/Users/Document/C Basic/cmake-build-debug/CMakeFiles/C_Basic.dir
+/Users/Document/C Basic/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/Document/C Basic/cmake-build-debug/CMakeFiles/rebuild_cache.dir

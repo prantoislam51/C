@@ -1,0 +1,37 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.body_section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+input{
+    width: 30%;
+    height: 6%;
+    background-color: beige;
+    color: rgb(9, 150, 172);
+    outline: none;
+    font-size: 20px;
+    
+}
+input:hover{
+    color: rgb(3, 126, 52);
+}
+
+button{
+    width: 15%;
+    height: 7%;   
+    outline: none;
+}
+button:hover{
+    background-color: yellow;
+    outline: none;
+    border-radius: 20%;
+}
